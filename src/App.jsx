@@ -1,7 +1,7 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
 import { useState, useEffect } from "react";
-import { getUser, getProjects } from "./util/axios";
+import { getUser, getProjects, getPosts } from "./util/axios";
 import { Container, Row, Col } from "react-bootstrap";
 import { PictureBox } from "./components/boxes/PictureBox";
 import { IconBox } from "./components/boxes/IconsBox";
@@ -10,18 +10,21 @@ import { EducationBox } from "./components/boxes/EducationBox";
 import { ProjectContainer } from "./components/containers/ProjectContainer";
 import { ProjectHeader } from "./components/containers/ProjectHeader";
 import { MainProjectsContainer } from "./components/containers/MainProjectsContainer";
-
+import { BlogsHeader } from "./components/containers/BlogsHeader";
+import { BlogsContainer } from "./components/containers/BlogsContainer";
 function App() {
   const [data, setData] = useState({});
   const [projects, setProjects] = useState([]);
+  const [posts, setPosts] = useState([]);
   const [showProjects, setShowProjects] = useState(false);
+  const [showPosts, setShowPosts] = useState(true);
   useEffect(() => {
     getUser().then((res) => setData(res));
     getProjects().then((res) => setProjects(res));
+    getPosts().then((res) => setPosts(res));
   }, []);
-  const handleShowProjects = () => {
-    setShowProjects((prev) => (prev ? false : true));
-  };
+  const handleShowProjects = () => setShowProjects((prev) => (prev ? false : true));
+  const handleShowPosts = () => setShowPosts((prev) => (prev ? false : true));
   return (
     <main className="App">
       {data && (
@@ -55,6 +58,8 @@ function App() {
                   <MainProjectsContainer projectsArray={projects} />
                 )
               )}
+              <BlogsHeader showPosts={()=> handleShowPosts()}/>
+              {posts.length > 0 && showPosts && <BlogsContainer postsArray={posts}  />}
             </Col>
           </Row>
         </Container>

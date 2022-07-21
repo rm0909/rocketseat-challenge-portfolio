@@ -125,15 +125,16 @@ a {
 #date-text {
   font-weight: 400;
 }
-#project-header {
+.project-header {
   padding: 1em;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   text-align: center;
 }
-#project-header p {
+.project-header p:hover {
   cursor: pointer;
+  color: var(--bg-techs);
 }
 header h1 {
   font-weight: bold;
@@ -198,7 +199,35 @@ a:hover {
   text-decoration: underline;
   color: var(--text-color);
 }
-#cu{
-  color: #00ff00;
-  background-color: #00ff00;
+.blog-header {
+  padding: 1em;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  text-align: center;
+}
+.blog-container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.blog-header p{
+  cursor: pointer;
+}
+.blog-header p:hover{
+  color: var(--bg-techs);
+}
+.image-parent{
+  width: 70%;
+}
+.image-parent img{
+  width: 100%;
+  display: block;
+}
+.blog-reactions{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  width: 100%;
 }

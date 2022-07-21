@@ -4,9 +4,8 @@ import starIcon from "../assets/star.svg";
 import forkIcon from "../assets/git-branch.svg";
 
 function MainProjectsContainer({ projectsArray }) {
-  console.log(projectsArray);
-
-  const styles = {
+  
+    const styles = {
     HTML: {
       backgroundColor: "brown",
     },

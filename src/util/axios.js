@@ -10,5 +10,10 @@ async function getProjects() {
   const data = response.data;
   return data;
 }
+const getPosts = async () => {
+  const response = await axios("https://dev.to/api/articles?username=rm0909");
+  const { data } = response;
+  return data;
+};
 
-export { getUser, getProjects };
+export { getUser, getProjects, getPosts };

@@ -25,20 +25,20 @@ function IconBox({
       </div>
       <div className="icon-text ">
         <ReactSVG src={twitterIcon} size="24px" className="inline-block" />
-        <a className="icon-text inline-block"> {twitter}</a>
+        <a href={twitter} target="_blank" className="icon-text inline-block"> {twitter}</a>
       </div>
 
       <div className="icon-text ">
         <ReactSVG src={githubIcon} size="24px" className="inline-block" />
-        <a className="icon-text inline-block"> {github}</a>
+        <a href={github} target="_blank"className="icon-text inline-block"> {github}</a>
       </div>
       <div className="icon-text ">
         <ReactSVG src={globeIcon} size="24px" className="inline-block" />
-        <a className="icon-text inline-block"> {personalWebsite}</a>
+        <a href={personalWebsite} target="_blank"className="icon-text inline-block"> {personalWebsite}</a>
       </div>
       <div className="icon-text ">
         <BsLinkedin size="24px" className="inline-block" />
-        <a className="icon-text inline-block"> {linkedin}</a>
+        <a href={linkedin} target="_blank" className="icon-text inline-block"> {linkedin}</a>
       </div>
     </section>
   );
