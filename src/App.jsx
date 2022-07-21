@@ -9,22 +9,25 @@ import { TechnologyBox } from "./components/boxes/TechnologyBox";
 import { EducationBox } from "./components/boxes/EducationBox";
 import { ProjectContainer } from "./components/containers/ProjectContainer";
 import { ProjectHeader } from "./components/containers/ProjectHeader";
+import { MainProjectsContainer } from "./components/containers/MainProjectsContainer";
 
 function App() {
   const [data, setData] = useState({});
   const [projects, setProjects] = useState([]);
-
+  const [showProjects, setShowProjects] = useState(false);
   useEffect(() => {
     getUser().then((res) => setData(res));
     getProjects().then((res) => setProjects(res));
   }, []);
-
+  const handleShowProjects = () => {
+    setShowProjects((prev) => (prev ? false : true));
+  };
   return (
     <main className="App">
       {data && (
         <Container fluid>
           <Row>
-            <Col md={4}>
+            <Col sm={6} md={5} lg={4} xxl={3}>
               {" "}
               <PictureBox
                 avatar={data.avatar_url}
@@ -42,9 +45,16 @@ function App() {
               <TechnologyBox />
               <EducationBox />
             </Col>
-            <Col md={8}>
-              <ProjectHeader />
-              {projects && <ProjectContainer projectsArray={projects} />}
+            <Col md={7} xl={8} xxl={9}>
+              <ProjectHeader showProjects={() => handleShowProjects()} />
+              {projects.length > 0 && showProjects ? (
+                <ProjectContainer projectsArray={projects} />
+              ) : (
+                projects.length > 0 &&
+                !showProjects && (
+                  <MainProjectsContainer projectsArray={projects} />
+                )
+              )}
             </Col>
           </Row>
         </Container>

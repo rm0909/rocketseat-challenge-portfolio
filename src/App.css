@@ -16,9 +16,7 @@
 body {
   background-color: var(--body-bg-color);
 }
-a {
-  text-decoration: none;
-}
+
 .profile-box {
   display: flex;
   flex-direction: column;
@@ -88,9 +86,9 @@ a {
 }
 .tech-wrapper {
   margin: 1em;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1.5em;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
 }
 .tech {
   padding-left: 5px;
@@ -100,9 +98,10 @@ a {
   border-radius: 1em;
   font-weight: bold;
   color: var(--body-bg-color);
+  margin: 0.5em;
 }
-.education-box {
-}
+/* .education-box {
+} */
 .education-box h1 {
   text-align: left;
   font-size: 20px;
@@ -132,7 +131,9 @@ a {
   flex-direction: row;
   justify-content: space-between;
   text-align: center;
-  
+}
+#project-header p {
+  cursor: pointer;
 }
 header h1 {
   font-weight: bold;
@@ -143,26 +144,61 @@ header p {
   font-size: 12px;
 }
 .project-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+  place-items: center;
+  place-content: center;
+}
+.project-box {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
   padding: 1em;
+  width: 400px;
+  height: 170px;
 }
-.project-box{
-
-}
-.project-title{
+.project-title {
   width: 230px;
 }
-.project-title p{
+.project-title p {
+  font-weight: bold;
   padding-left: 1em;
+  margin-bottom: 1em;
 }
-.project-description p{
-  font-weight: 500;
+.project-description p {
+  text-align: center;
+  font-weight: lighter;
   font-size: 14px;
 }
-.project-repo-count{
-
-display: flex;
-flex-direction: row;
-justify-content: space-between;
-align-items: center;
-width: 10%;
+.project-repo-details {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.project-repo-count {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 30%;
+}
+.circle {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  border: 1px solid white;
+}
+.language-name {
+  padding-left: 5px;
+}
+a {
+  text-decoration: none;
+  color: var(--text-color);
+}
+a:hover {
+  text-decoration: underline;
+  color: var(--text-color);
+}
+#cu{
+  color: #00ff00;
+  background-color: #00ff00;
 }
