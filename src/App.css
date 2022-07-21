@@ -1,41 +1,168 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
+@import url("https://fonts.googleapis.com/css2?family=Merriweather+Sans:wght@400;500;700&display=swap");
+:root {
+  --body-bg-color: #22212c;
+  --text-color: #837e9f;
+  --bg-cards: #302f3d;
+  --bg-techs: #cb92b1;
+}
+*,
+::after,
+::before {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Merriweather Sans", sans-serif;
+}
+body {
+  background-color: var(--body-bg-color);
+}
+a {
+  text-decoration: none;
+}
+.profile-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
   text-align: center;
+  padding: 1em;
+  height: 250px;
 }
+.cards {
+  color: var(--text-color);
+  background-color: var(--bg-cards);
+  border-radius: 20px;
+  margin: 1em;
+}
+#user-image {
+  display: block;
+  border-radius: 50%;
+  border: 2px solid #00ff00;
+  width: 128px;
+  height: 128px;
+}
+#name {
+  font-weight: bold;
+  font-size: 23px;
+}
+#bio {
+  font-weight: lighter;
+  font-size: 13px;
+}
+.icon-box {
+  padding: 1em;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+.icon-text {
+  display: flex;
+  align-items: flex-start;
+  font-weight: normal;
+  font-size: 12px;
+  margin: 0.5em 0em 0.5em 0em;
+  color: var(--text-color);
+}
+.icon-text p,
+a {
+  padding-left: 5px;
+}
+a {
+  cursor: pointer;
+}
+.inline-block {
+  display: inline-block;
+}
+.technology-box {
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 1em;
+}
+.technology-box h1 {
+  padding-bottom: 1em;
+  text-align: left;
+  font-size: 20px;
+  font-weight: bold;
+}
+.tech-wrapper {
+  margin: 1em;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5em;
+}
+.tech {
+  padding-left: 5px;
+  padding-right: 5px;
+  text-align: center;
+  background-color: var(--bg-techs);
+  border-radius: 1em;
+  font-weight: bold;
+  color: var(--body-bg-color);
+}
+.education-box {
+}
+.education-box h1 {
+  text-align: left;
+  font-size: 20px;
+  font-weight: bold;
+  padding: 1em;
+}
+.education-box h5 {
+  font-weight: bold;
+  font-size: 14px;
+}
+.education-box p {
+  font-weight: bold;
+  font-size: 11px;
+}
+.education-list {
+  padding: 1em 0em 1em 1em;
+}
+.education-list li {
+  margin-bottom: 1em;
+}
+#date-text {
+  font-weight: 400;
+}
+#project-header {
+  padding: 1em;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  text-align: center;
+  
+}
+header h1 {
+  font-weight: bold;
+  font-size: 20px;
+}
+header p {
+  font-weight: 500;
+  font-size: 12px;
+}
+.project-container {
+  padding: 1em;
+}
+.project-box{
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
 }
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
+.project-title{
+  width: 230px;
 }
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+.project-title p{
+  padding-left: 1em;
 }
+.project-description p{
+  font-weight: 500;
+  font-size: 14px;
+}
+.project-repo-count{
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
-}
-
-.card {
-  padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
+display: flex;
+flex-direction: row;
+justify-content: space-between;
+align-items: center;
+width: 10%;
 }

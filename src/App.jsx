@@ -1,34 +1,56 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import './App.css'
+import "bootstrap/dist/css/bootstrap.min.css";
+import "./App.css";
+import { useState, useEffect } from "react";
+import { getUser, getProjects } from "./util/axios";
+import { Container, Row, Col } from "react-bootstrap";
+import { PictureBox } from "./components/boxes/PictureBox";
+import { IconBox } from "./components/boxes/IconsBox";
+import { TechnologyBox } from "./components/boxes/TechnologyBox";
+import { EducationBox } from "./components/boxes/EducationBox";
+import { ProjectContainer } from "./components/containers/ProjectContainer";
+import { ProjectHeader } from "./components/containers/ProjectHeader";
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [data, setData] = useState({});
+  const [projects, setProjects] = useState([]);
+
+  useEffect(() => {
+    getUser().then((res) => setData(res));
+    getProjects().then((res) => setProjects(res));
+  }, []);
 
   return (
-    <div className="App">
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src="/vite.svg" className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://reactjs.org" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </div>
-  )
+    <main className="App">
+      {data && (
+        <Container fluid>
+          <Row>
+            <Col md={4}>
+              {" "}
+              <PictureBox
+                avatar={data.avatar_url}
+                name={data.name}
+                bio={data.bio}
+              />
+              <IconBox
+                location={data.location}
+                github={data.html_url}
+                linkedin={"https://linkedin.com/in/raphael-machado-dev"}
+                twitter={"https://twitter.com/RaphaelmDev"}
+                personalWebsite={data.blog}
+                email={"raphael.mm.91@gmail.com"}
+              />
+              <TechnologyBox />
+              <EducationBox />
+            </Col>
+            <Col md={8}>
+              <ProjectHeader />
+              {projects && <ProjectContainer projectsArray={projects} />}
+            </Col>
+          </Row>
+        </Container>
+      )}
+    </main>
+  );
 }
 
-export default App
+export default App;
